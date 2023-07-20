@@ -23,11 +23,16 @@ pipeline {
                 }
             }
         }
-        stage('b') {
+        stage('安卓编译打包') {
             steps {
-                sh "mvn package"
+                sh '''
+                    . ~/.bash_profile
+                    cd Serv_master
+                    mvn package
+                '''
             }
         }
+
 
         stage('c') {
             steps {
