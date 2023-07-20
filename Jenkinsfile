@@ -23,10 +23,9 @@ pipeline {
                 }
             }
         }
-        stage('安卓编译打包') {
+        stage('编译打包') {
             steps {
                 sh '''
-                    . ~/.bash_profile
                     cd Serv_master
                     mvn package
                 '''
