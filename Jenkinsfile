@@ -15,14 +15,14 @@ pipeline {
 
             }
         }
-//        stage('拉取源码') {
-//            steps {
-//                sh 'mkdir -p Serv_master'
-//                dir("Serv_master"){
-//                    git branch:'master', url:'https://github.com/SaintVamp/Serv.git'
-//                }
-//            }
-//        }
+        stage('拉取源码') {
+            steps {
+                sh 'mkdir -p Serv_master'
+                dir("Serv_master"){
+                    git branch:'master', url:'https://github.com/SaintVamp/Serv.git'
+                }
+            }
+        }
         stage('b') {
             steps {
                 sh "mvn package"
