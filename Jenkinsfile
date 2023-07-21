@@ -15,22 +15,22 @@ pipeline {
 
             }
         }
-//        stage('拉取源码') {
-//            steps {
-//                sh 'mkdir -p Serv_master'
-//                dir("Serv_master") {
-//                    git branch: 'master', url: 'https://github.com/SaintVamp/Serv.git'
-//                }
-//            }
-//        }
-//        stage('编译打包') {
-//            steps {
-//                sh '''
-//                    cd Serv_master
-//                    mvn package
-//                '''
-//            }
-//        }
+        stage('拉取源码') {
+            steps {
+                sh 'mkdir -p Serv_master'
+                dir("Serv_master") {
+                    git branch: 'master', url: 'https://github.com/SaintVamp/Serv.git'
+                }
+            }
+        }
+        stage('编译打包') {
+            steps {
+                sh '''
+                    cd Serv_master
+                    mvn package
+                '''
+            }
+        }
 
     }
     post('通知邮件') {
