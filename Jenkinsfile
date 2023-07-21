@@ -18,8 +18,8 @@ pipeline {
         stage('拉取源码') {
             steps {
                 sh 'mkdir -p Serv_master'
-                dir("Serv_master"){
-                    git branch:'master', url:'https://github.com/SaintVamp/Serv.git'
+                dir("Serv_master") {
+                    git branch: 'master', url: 'https://github.com/SaintVamp/Serv.git'
                 }
             }
         }
@@ -40,7 +40,11 @@ pipeline {
         }
         stage('通知邮件') {
             steps {
-                emailext body: '$DEFAULT_CONTENT', recipientProviders: [[$class: 'RequesterRecipientProvider']], subject: '$DEFAULT_SUBJECT',to:'wp2sy001@163.com'
+                emailext(body: '$DEFAULT_CONTENT',
+                        recipientProviders: [[$class: 'RequesterRecipientProvider']],
+                        subject: '$DEFAULT_SUBJECT',
+                        to: 'wp2sy001@163.com',
+                        from: 'wp2sy001@163.com')
             }
         }
 
