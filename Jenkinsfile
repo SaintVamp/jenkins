@@ -41,7 +41,6 @@ pipeline {
         stage('通知邮件') {
             steps {
                 emailext(body: '$DEFAULT_CONTENT',
-                        recipientProviders: [[$class: 'RequesterRecipientProvider']],
                         subject: '$DEFAULT_SUBJECT',
                         to: 'wp2sy001@163.com',
                         from: 'wp2sy001@163.com')
