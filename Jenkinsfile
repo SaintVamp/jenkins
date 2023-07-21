@@ -35,9 +35,11 @@ pipeline {
     }
     post('通知邮件') {
         always {
-            emailext subject: '接口自动化测试结果:', body: '效果不错',
-                    from: 'wp2sy001@163.com',
-                    to: 'wp2sy001@163.com'
+            script {
+                emailext(subject: '接口自动化测试结果',
+                        body: '效果不错',
+                        to: 'wp2sy001@163.com',)
+            }
         }
     }
 }
