@@ -37,7 +37,6 @@ pipeline {
         always {
             emailext(body: '${DEFAULT_CONTENT}',
                     subject: '${DEFAULT_SUBJECT}',
-                    from: '${DEFAULT_RECIPIENTS}',
                     to: '${DEFAULT_RECIPIENTS}')
         }
     }
