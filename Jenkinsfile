@@ -24,11 +24,19 @@ pipeline {
                 }
             }
         }
+        stage('单元测试') {
+            steps {
+                sh '''
+                    cd Serv_master
+                    mvn test
+                '''
+            }
+        }
         stage('编译打包') {
             steps {
                 sh '''
                     cd Serv_master
-                    mvn package
+                    mvn package -Dmaven.test.skip=true
                 '''
             }
         }
