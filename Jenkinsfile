@@ -36,7 +36,7 @@ pipeline {
             steps {
                 sh '''
                     cd Serv_master
-                    mvn package -Dmaven.test.skip=true
+                    mvn clean package -Dmaven.test.skip=true
                 '''
             }
         }
