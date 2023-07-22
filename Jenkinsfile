@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sh 'mkdir -p Serv_master'
                 dir("Serv_master") {
-                    git branch: 'master', url: 'https://github.com/SaintVamp/Serv.git'
+                    git branch: 'master', url: 'ssh://git@4.0.4.60:49154/saintvamp/serv.git'
                 }
             }
         }
